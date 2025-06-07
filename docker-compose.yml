@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "12146:12146"
+    restart: unless-stopped
+    # If you need environment variables, add them here
+    # environment:
+    #   - NODE_ENV=production
+    # If you need volumes for persistent data, add them here
+    # volumes:
+    #   - ./data:/app/data

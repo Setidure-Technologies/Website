@@ -1,29 +1,37 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* Dark Mode Theme */
   --background: 220 13% 9%;
   --foreground: 220 9% 95%;
   --card: 220 13% 11%;
   --card-foreground: 220 9% 95%;
   --popover: 220 13% 11%;
   --popover-foreground: 220 9% 95%;
-  --primary: 200 100% 60%;
+  
+  /* Color Accents */
+  --tech-blue: 200 100% 60%;
+  --electric-cyan: 180 100% 50%;
+  --neon-green: 140 100% 50%;
+  
+  /* Primary Colors */
+  --primary: var(--tech-blue);
   --primary-foreground: 220 13% 9%;
   --secondary: 220 13% 15%;
   --secondary-foreground: 220 9% 95%;
   --muted: 220 13% 15%;
   --muted-foreground: 220 9% 65%;
-  --accent: 200 100% 60%;
+  --accent: var(--electric-cyan);
   --accent-foreground: 220 13% 9%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 220 9% 95%;
   --border: 220 13% 20%;
   --input: 220 13% 20%;
-  --ring: 200 100% 60%;
+  --ring: var(--tech-blue);
   --radius: 0.5rem;
 }
 
@@ -46,8 +54,26 @@ html {
   font-family: 'Poppins', sans-serif;
 }
 
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #00d4ff 0%, #0099cc 50%, #0066ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #00ffff 0%, #00cccc 50%, #00aaaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #00ff80 0%, #00cc66 50%, #00aa44 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -163,4 +189,86 @@ html {
   border-radius: inherit;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+/* Additional Animation Classes */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.rotate-slow {
+  animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.pulse-slow {
+  animation: pulseSlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSlow {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+/* Glass Morphism Variations */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+.glass-panel-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+}
+
+/* Gradient Borders */
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #00d4ff, #0099cc, #0066ff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Animated Background */
+.animated-bg {
+  background: linear-gradient(-45deg, #001122, #002244, #003366, #004488);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

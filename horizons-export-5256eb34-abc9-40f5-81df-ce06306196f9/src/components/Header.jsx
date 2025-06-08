@@ -20,10 +20,14 @@ const Header = () => {
 
   const navItems = [
     { name: 'Home', href: '/', type: 'route' },
-    { name: 'About', href: '/#about', type: 'anchor' },
-    { name: 'Services', href: '/#services', type: 'anchor' },
+    { name: 'About', href: '/about', type: 'route' },
+    { name: 'Vision & Mission', href: '/vision-mission', type: 'route' },
+    { name: 'Services', href: '/services', type: 'route' },
+    { name: 'Approach', href: '/approach', type: 'route' },
+    { name: 'Industries', href: '/industries', type: 'route' },
+    { name: 'Testimonials', href: '/testimonials', type: 'route' },
     { name: 'Store', href: '/store', type: 'route' },
-    { name: 'Contact', href: '/#contact', type: 'anchor' }
+    { name: 'Contact', href: '/contact', type: 'route' }
   ];
 
   const handleNavClick = (href, type) => {
@@ -43,6 +47,7 @@ const Header = () => {
 
 
   return (
+    <>
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -151,6 +156,24 @@ const Header = () => {
         )}
       </nav>
     </motion.header>
+    
+    {/* Floating CTA Button */}
+    <motion.a 
+      href="https://payhip.com/SetidureN8NTemplates"
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="fixed bottom-8 right-8 z-50 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold px-6 py-3 rounded-full neon-glow shadow-lg flex items-center space-x-2"
+    >
+      <span>Explore Templates</span>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+      </svg>
+    </motion.a>
+    </>
   );
 };
 

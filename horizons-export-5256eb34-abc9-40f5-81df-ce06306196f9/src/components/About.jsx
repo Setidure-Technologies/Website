@@ -31,7 +31,7 @@ const About = () => {
     {
       name: "Aashit Sharma",
       role: "CTO and CFO",
-      image: "https://drive.google.com/uc?id=1bLjFODZ0G9VJ5zo1CD3Pox6O5YaTO0_z",
+      image: "https://drive.google.com/file/d/1bLjFODZ0G9VJ5zo1CD3Pox6O5YaTO0_z/view?usp=sharing",
       profileUrl: "https://aashitsharma.bio",
       description: "Aashit Sharma leads our technology and finance departments with innovative strategies and technical acumen. As CTO and CFO, he drives our core technology initiatives while ensuring robust financial planning.",
       socialLinks: {
@@ -42,7 +42,7 @@ const About = () => {
     {
       name: "Arindam",
       role: "CEO and Lead Developer, Frontend (Vibecoders)",
-      image: "https://drive.google.com/uc?id=1B0thNjLn0AJLKgwj0pTA2YhaB1qzIik6",
+      image: "https://drive.google.com/file/d/1bLjFODZ0G9VJ5zo1CD3Pox6O5YaTO0_z/view?usp=sharing",
       profileUrl: "#",
       description: "Arindam is the visionary CEO and lead developer behind our cutting-edge interfaces. Proudly representing Vibecoders, he spearheads frontend innovations and ensures an exceptional user experience.",
       socialLinks: {

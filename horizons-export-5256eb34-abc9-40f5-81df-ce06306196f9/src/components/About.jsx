@@ -29,7 +29,7 @@ const About = () => {
     {
       name: "Arindam",
       role: "CEO and Lead Developer, Frontend (Vibecoders)",
-      image: "https://drive.google.com/file/d/1bLjFODZ0G9VJ5zo1CD3Pox6O5YaTO0_z/view?usp=sharing",
+      image: "horizons-export-5256eb34-abc9-40f5-81df-ce06306196f9/public/Arindam.jpg",
       profileUrl: "#",
       description: "Arindam is the visionary CEO and lead developer behind our cutting-edge interfaces. Proudly representing Vibecoders, he spearheads frontend innovations and ensures an exceptional user experience.",
       socialLinks: {

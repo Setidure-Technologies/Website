@@ -1,13 +1,207 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Rocket } from 'lucide-react';
+
+// North Star Component with advanced animations
+const NorthStar = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const rect = document.querySelector('.north-star-container').getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      setMousePosition({
+        x: (e.clientX - centerX) * 0.1, // Parallax multiplier
+        y: (e.clientY - centerY) * 0.1
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Generate random positions for background stars
+  const backgroundStars = Array.from({ length: 12 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 2,
+    scale: 0.3 + Math.random() * 0.7
+  }));
+
+  return (
+    <div className="north-star-container absolute inset-0 flex items-center justify-center pointer-events-none">
+      {/* Background twinkling stars */}
+      {backgroundStars.map(star => (
+        <motion.div
+          key={star.id}
+          className="absolute w-1 h-1 bg-cyan-300 rounded-full"
+          style={{
+            left: `${star.x}%`,
+            top: `${star.y}%`,
+          }}
+          animate={{
+            opacity: [0.2, 0.8, 0.2],
+            scale: [star.scale, star.scale * 1.5, star.scale],
+          }}
+          transition={{
+            duration: 2 + Math.random() * 2,
+            repeat: Infinity,
+            delay: star.delay,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+
+      {/* Main North Star */}
+      <motion.div
+        className="relative pointer-events-auto cursor-pointer"
+        animate={{
+          x: mousePosition.x,
+          y: mousePosition.y,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15
+        }}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+      >
+        {/* Star Halo/Glow */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-300 to-cyan-400 blur-xl opacity-30"
+          style={{ width: '120px', height: '120px', top: '-35px', left: '-35px' }}
+          animate={{
+            scale: isHovered ? [1, 1.8, 1.4] : [1, 1.2, 1],
+            opacity: isHovered ? [0.3, 0.7, 0.5] : [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: isHovered ? 0.8 : 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        {/* Main Star Body */}
+        <motion.div
+          className="relative w-12 h-12 flex items-center justify-center"
+          animate={{
+            rotate: isHovered ? [0, 45, 0] : 0,
+            scale: isHovered ? 1.3 : 1,
+          }}
+          transition={{
+            duration: 0.6,
+            ease: "easeOut"
+          }}
+        >
+          {/* Star Shape using CSS */}
+          <div className="star-shape relative">
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-cyan-200 via-white to-cyan-200 star-svg"
+              animate={{
+                opacity: isHovered ? [0.8, 1, 0.9] : [0.6, 0.8, 0.6],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: isHovered ? 1 : 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+
+          {/* Sparkle Effects on Hover */}
+          {isHovered && (
+            <>
+              {[...Array(8)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-white rounded-full"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                  }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{
+                    opacity: [0, 1, 0],
+                    scale: [0, 1, 0],
+                    x: Math.cos((i * Math.PI * 2) / 8) * (20 + Math.random() * 20),
+                    y: Math.sin((i * Math.PI * 2) / 8) * (20 + Math.random() * 20),
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.1,
+                    ease: "easeOut"
+                  }}
+                />
+              ))}
+            </>
+          )}
+
+          {/* Light Rays on Hover */}
+          {isHovered && (
+            <motion.div
+              className="absolute inset-0 pointer-events-none"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 0.8, 0.4] }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute bg-gradient-to-r from-transparent via-cyan-200 to-transparent opacity-60"
+                  style={{
+                    width: '2px',
+                    height: '60px',
+                    left: '50%',
+                    top: '50%',
+                    transformOrigin: 'center bottom',
+                    transform: `translate(-50%, -100%) rotate(${i * 30}deg)`,
+                  }}
+                />
+              ))}
+            </motion.div>
+          )}
+        </motion.div>
+
+        {/* Shimmer Effect */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
+          style={{ width: '50px', height: '50px', top: '-1px', left: '-1px' }}
+          animate={{
+            x: [-20, 70, -20],
+            opacity: [0, 0.4, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+      </motion.div>
+    </div>
+  );
+};
 
 const VisionMission = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900"></div>
       <div className="absolute inset-0 tech-grid opacity-10"></div>
+      
+      {/* North Star Animation */}
+      <NorthStar />
       
       <div className="relative z-10 container mx-auto px-6">
         <motion.div
@@ -147,3 +341,26 @@ const VisionMission = () => {
 };
 
 export default VisionMission;
+
+// Add this CSS to your global styles or as a styled component
+const starStyles = `
+  .star-shape {
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+  
+  .star-svg {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.5));
+  }
+`;
+
+// Inject styles
+if (typeof document !== 'undefined') {
+  const styleElement = document.createElement('style');
+  styleElement.textContent = starStyles;
+  document.head.appendChild(styleElement);
+}

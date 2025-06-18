@@ -118,24 +118,25 @@ const AboutUsPage = () => {
                 </div>
               </ContentCard>
 
-              {/* Team Image Placeholder */}
+              {/* Team Image */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
                 viewport={{ once: true }}
-                className="relative rounded-2xl overflow-hidden border border-cyan-500/20"
+                className="relative rounded-2xl overflow-hidden border border-cyan-500/20 flex flex-col items-center justify-center bg-slate-900"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
                   alt="Setidure Team"
-                  className="w-full h-auto"
+                  className="w-32 h-32 rounded-full object-cover mt-8 shadow-lg border-4 border-cyan-400"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">Our Team</h3>
-                  <p className="text-slate-300 text-sm">
-                    A diverse group of AI engineers, developers, and domain experts
+                <div className="flex flex-col items-center text-center px-6 py-8">
+                  <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+                    <span role="img" aria-label="star">🌟</span> Our Team
+                  </h3>
+                  <p className="text-slate-300 text-base leading-relaxed max-w-md">
+                    At the heart of our project is a small yet powerful team driven by purpose, passion, and innovation. Comprising two dedicated core members and one guiding light in the form of our esteemed professor, we work at the intersection of ideas and impact.
                   </p>
                 </div>
               </motion.div>
@@ -144,7 +145,7 @@ const AboutUsPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Call to Action Section */}
       <section className="py-16 relative">
         <div className="container mx-auto px-6">
           <CallToAction

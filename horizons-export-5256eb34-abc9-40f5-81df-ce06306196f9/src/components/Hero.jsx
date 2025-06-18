@@ -49,7 +49,7 @@ const Hero = () => {
           className="max-w-5xl mx-auto"
         >
           {/* Badge */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -57,7 +57,7 @@ const Hero = () => {
           >
             <Sparkles className="w-5 h-5 text-cyan-400" />
             <span className="text-cyan-300 font-medium">AI Infrastructure for a Smarter Tomorrow</span>
-          </motion.div>
+          </motion.div> /*}
 
           {/* Main Heading */}
           <motion.h1

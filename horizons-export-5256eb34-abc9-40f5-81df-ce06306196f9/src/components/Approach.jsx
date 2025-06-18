@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Server, Layers, Unlock } from 'lucide-react';
+import AgentPipelineParallax from './AgentPipelineParallax';
 
 const Approach = () => {
   const approaches = [
@@ -119,20 +120,17 @@ const Approach = () => {
           ))}
         </div>
 
-        {/* Visual Element */}
+        {/* Interactive Parallax Animation */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 1, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-20"
         >
-          <div className="relative inline-block">
-            <img  
-              className="rounded-2xl shadow-2xl max-w-full h-auto border border-cyan-500/20 neon-glow"
-              alt="AI infrastructure architecture diagram"
-             src="https://images.unsplash.com/photo-1684369585053-2b35888b3ae8" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent rounded-2xl"></div>
+          <div className="relative rounded-2xl overflow-hidden border border-cyan-500/20 shadow-2xl backdrop-blur-glass">
+            <AgentPipelineParallax height="600px" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent pointer-events-none"></div>
           </div>
         </motion.div>
 
@@ -146,9 +144,15 @@ const Approach = () => {
         >
           <div className="backdrop-blur-glass rounded-xl p-6 border border-cyan-500/20 max-w-4xl mx-auto">
             <p className="text-lg text-slate-300">
-              <span className="text-cyan-400 font-semibold">Built for the future.</span> 
-              {' '}Our approach ensures your AI infrastructure remains flexible, secure, and under your complete control.
+              <span className="text-cyan-400 font-semibold">Intelligent by design.</span> 
+              {' '}Watch our modular agents collaborate seamlessly while maintaining complete autonomy and control over your data.
             </p>
+            <div className="mt-4 text-sm text-slate-400 text-center">
+              <span className="inline-flex items-center space-x-2">
+                <span>💡</span>
+                <span>Scroll to see the agents in action</span>
+              </span>
+            </div>
           </div>
         </motion.div>
       </div>

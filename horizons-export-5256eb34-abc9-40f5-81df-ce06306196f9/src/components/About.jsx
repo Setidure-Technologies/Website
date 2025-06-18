@@ -13,25 +13,12 @@ const About = () => {
   const [globalMouseX, setGlobalMouseX] = useState(0);
   const [globalMouseY, setGlobalMouseY] = useState(0);
   
-  // Track mouse position globally for particle effects
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      setGlobalMouseX(e.clientX / window.innerWidth);
-      setGlobalMouseY(e.clientY / window.innerHeight);
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
-  
   // Team members data
   const teamMembers = [
     {
       name: "Aashit Sharma",
       role: "CTO and CFO",
-      image: "https://drive.google.com/file/d/1bLjFODZ0G9VJ5zo1CD3Pox6O5YaTO0_z/view?usp=sharing",
+      image: "/Aashit_image (1).png",
       profileUrl: "https://aashitsharma.bio",
       description: "Aashit Sharma leads our technology and finance departments with innovative strategies and technical acumen. As CTO and CFO, he drives our core technology initiatives while ensuring robust financial planning.",
       socialLinks: {
@@ -51,6 +38,19 @@ const About = () => {
       }
     }
   ];
+
+  // Track mouse position globally for particle effects
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      setGlobalMouseX(e.clientX / window.innerWidth);
+      setGlobalMouseY(e.clientY / window.innerHeight);
+    };
+    
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+    };
+  }, []);
   
   // 3D card effect handlers with enhanced interactivity
   const handleMouseMove = (e, cardRef) => {
@@ -339,8 +339,7 @@ const About = () => {
               viewport={{ once: true }}
               className="text-slate-300 max-w-2xl mx-auto text-lg relative z-10"
             >
-              We're not just developers. We're builders, dreamers, and coders with a vibe. 
-              We are the minds behind Setidure's AI-powered innovation.
+              A new-age developer who doesn’t just build software — they build experiences powered by clean code, creative energy, and an unstoppable vibe.
             </motion.p>
           </div>
           

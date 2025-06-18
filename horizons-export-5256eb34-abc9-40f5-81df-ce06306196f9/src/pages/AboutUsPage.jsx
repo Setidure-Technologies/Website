@@ -5,6 +5,7 @@ import PageHero from '@/components/PageHero';
 import ContentCard from '@/components/ContentCard';
 import FeatureCard from '@/components/FeatureCard';
 import CallToAction from '@/components/CallToAction';
+import MonitorAnimation from '@/components/MonitorAnimation';
 
 const AboutUsPage = () => {
   const highlights = [
@@ -35,16 +36,20 @@ const AboutUsPage = () => {
       {/* Hero Section */}
       <PageHero title="Who" highlightText="We Are">
         {/* 3D Animation Container */}
-        <div className="relative h-64 md:h-80 mb-12 neural-bg rounded-2xl border border-cyan-500/20 overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <div className="text-xl text-cyan-400 mb-4">3D Animation: Connected Nodes</div>
-              <div className="text-sm text-slate-400">
-                (WebGL/Three.js animation of connected nodes forming the Setidure logo)
-              </div>
-            </div>
-          </div>
-        </div>
+        <motion.div 
+          className="relative h-64 md:h-80 mb-12 neural-bg rounded-2xl border border-cyan-500/20 overflow-hidden"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <MonitorAnimation 
+            height="100%"
+            names={['Aashit', 'Arindam']}
+            typingSpeed={120}
+            pauseDuration={2500}
+          />
+        </motion.div>
       </PageHero>
 
       {/* Main Content */}

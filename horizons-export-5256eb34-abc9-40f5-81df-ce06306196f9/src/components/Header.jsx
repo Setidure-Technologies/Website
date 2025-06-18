@@ -26,6 +26,7 @@ const Header = () => {
     { name: 'Approach', href: '/approach', type: 'route' },
     { name: 'Industries', href: '/industries', type: 'route' },
     { name: 'Testimonials', href: '/testimonials', type: 'route' },
+    { name: 'Blog', href: '/blog', type: 'route' },
     { name: 'Store', href: '/store', type: 'route' },
     { name: 'Contact', href: '/contact', type: 'route' }
   ];

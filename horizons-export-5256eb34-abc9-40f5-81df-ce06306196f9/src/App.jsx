@@ -13,6 +13,8 @@ import ApproachPage from '@/pages/ApproachPage';
 import IndustriesPage from '@/pages/IndustriesPage';
 import TestimonialsPage from '@/pages/TestimonialsPage';
 import ContactPage from '@/pages/ContactPage';
+import BlogPage from '@/pages/BlogPage';
+import BlogPostPage from '@/pages/BlogPostPage';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
         <Footer />
         <Toaster />

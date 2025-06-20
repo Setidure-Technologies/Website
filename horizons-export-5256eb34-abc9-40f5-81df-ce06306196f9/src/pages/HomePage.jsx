@@ -2,7 +2,6 @@
 import React from 'react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import VisionMission from '@/components/VisionMission';
 import Services from '@/components/Services';
 import Approach from '@/components/Approach';
 import Industries from '@/components/Industries';
@@ -14,7 +13,6 @@ const HomePage = () => {
     <>
       <Hero />
       <About />
-      <VisionMission />
       <Services />
       <Approach />
       <Industries />

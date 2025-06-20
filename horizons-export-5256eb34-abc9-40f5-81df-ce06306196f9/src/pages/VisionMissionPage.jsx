@@ -6,6 +6,7 @@ import ContentCard from '@/components/ContentCard';
 import SectionHeading from '@/components/SectionHeading';
 import FeatureCard from '@/components/FeatureCard';
 import CallToAction from '@/components/CallToAction';
+import VisionMission from '@/components/VisionMission';
 
 const VisionMissionPage = () => {
   const principles = [
@@ -40,7 +41,10 @@ const VisionMissionPage = () => {
         </div>
       </PageHero>
 
-      {/* Vision & Mission Content */}
+      {/* Animated Vision & Mission Section with North Star */}
+      <VisionMission />
+
+      {/* Additional Vision & Mission Content */}
       <section className="py-16 relative">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">

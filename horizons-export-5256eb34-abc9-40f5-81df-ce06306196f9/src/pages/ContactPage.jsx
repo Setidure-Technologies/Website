@@ -106,7 +106,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="text-white font-semibold mb-1">Email</h3>
                       <a href="mailto:aashit@erudites.in" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                        aashit@erudites.in
+                        admin@setidure.com
                       </a>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="text-white font-semibold mb-1">Website</h3>
                       <a href="https://www.erudites.in" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                        www.erudites.in
+                        https://setidure.erudites.in/
                       </a>
                     </div>
                   </div>

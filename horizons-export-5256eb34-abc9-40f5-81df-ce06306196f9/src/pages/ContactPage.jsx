@@ -119,7 +119,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="text-white font-semibold mb-1">Website</h3>
                       <a href="https://www.erudites.in" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                        https://setidure.erudites.in/
+                        www.setidure.com
                       </a>
                     </div>
                   </div>

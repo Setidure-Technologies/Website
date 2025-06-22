@@ -8,9 +8,29 @@ services:
     ports:
       - "12146:12146"
     restart: unless-stopped
+    depends_on:
+      - blog-api
     # If you need environment variables, add them here
     # environment:
     #   - NODE_ENV=production
-    # If you need volumes for persistent data, add them here
-    # volumes:
-    #   - ./data:/app/data
+
+  # Blog API service
+  blog-api:
+    build:
+      context: ./blog-api
+      dockerfile: Dockerfile
+    ports:
+      - "12147:3001"
+    volumes:
+      # Mount the blog data directory for persistence
+      - ./horizons-export-5256eb34-abc9-40f5-81df-ce06306196f9/src/data:/app/blog-data:rw
+    environment:
+      - NODE_ENV=production
+      - API_KEY=setidure-blog-api-key-2024-secure
+      - ALLOWED_ORIGINS=http://localhost:12146,http://localhost:12147,https://yourdomain.com
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

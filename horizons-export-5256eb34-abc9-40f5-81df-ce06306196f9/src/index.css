@@ -369,3 +369,23 @@ html {
 .filter-button.inactive {
   @apply bg-white/5 text-gray-300 hover:bg-white/10;
 }
+
+/* Navigation Dropdown Styles */
+.dropdown-container .dropdown-menu {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.dropdown-container .dropdown-menu a:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(0, 153, 204, 0.9));
+  color: #0f172a;
+  transform: translateX(2px);
+}
+
+.dropdown-container .dropdown-menu a {
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+
+.dropdown-container .dropdown-menu a:hover {
+  border-left-color: #00d4ff;
+}

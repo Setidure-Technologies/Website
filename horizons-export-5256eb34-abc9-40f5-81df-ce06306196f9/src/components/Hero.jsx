@@ -27,7 +27,7 @@ const Hero = () => {
   ));
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Animated Background */}
       <div className="absolute inset-0 neural-bg hero-pattern"></div>
       <div className="absolute inset-0 tech-grid opacity-20"></div>

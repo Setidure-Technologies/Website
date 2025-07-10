@@ -1,9 +1,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Globe, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Globe, Send, CheckCircle, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
+import BookingCalendar from '@/components/BookingCalendar';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -255,9 +256,33 @@ const Contact = () => {
               className="backdrop-blur-glass rounded-2xl p-4 border border-cyan-500/20"
             >
               <img  
-                className="w-full h-48 object-cover rounded-lg"
+                className="w-full h-48 object-cover rounded-lg mb-6"
                 alt="Delhi NCR location map"
                src="https://images.unsplash.com/photo-1505521625334-69033f066c50" />
+            </motion.div>
+            
+            {/* Booking Calendar */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="backdrop-blur-glass rounded-2xl mt-8 border border-cyan-500/20"
+            >
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <Calendar className="w-6 h-6 text-cyan-400 mr-3" />
+                  <h3 className="text-xl font-bold text-white font-poppins">Schedule a Meeting</h3>
+                </div>
+                <p className="text-slate-300 mb-4">
+                  Book a time that works for you to discuss your AI implementation needs.
+                </p>
+                <BookingCalendar 
+                  className="bg-slate-800/30 rounded-xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300" 
+                  color="#039BE5"
+                  label="Book a Meeting"
+                />
+              </div>
             </motion.div>
           </motion.div>
         </div>

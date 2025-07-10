@@ -6,6 +6,8 @@ import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import ContentCard from '@/components/ContentCard';
 import CallToAction from '@/components/CallToAction';
+import BookingCalendar from '@/components/BookingCalendar';
+import { useEffect, useRef } from 'react';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -105,7 +107,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="text-white font-semibold mb-1">Email</h3>
-                      <a href="mailto:aashit@erudites.in" className="text-slate-300 hover:text-cyan-400 transition-colors">
+                      <a href="mailto:admin@setidure.com" className="text-slate-300 hover:text-cyan-400 transition-colors">
                         admin@setidure.com
                       </a>
                     </div>
@@ -296,6 +298,35 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
+      
+      {/* Calendar Booking Section */}
+      <section className="py-12 relative">
+        <div className="container mx-auto px-6">
+          <SectionHeading
+            title="Schedule a"
+            highlightText="Consultation"
+          />
+          <div className="max-w-2xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <ContentCard title="Book an Appointment">
+                <p className="text-slate-300 mb-6 text-center">
+                  Select a convenient time slot for a virtual meeting with our team to discuss your project requirements.
+                </p>
+                <BookingCalendar 
+                  className="bg-slate-800/30 rounded-xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300" 
+                  color="#039BE5"
+                  label="Book a Free Consultation"
+                />
+              </ContentCard>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section className="py-16 relative">
@@ -333,11 +364,19 @@ const ContactPage = () => {
           <CallToAction
             title="Ready to transform your organization with AI?"
             subtitle="Let's discuss how our solutions can address your specific challenges and opportunities"
-            buttonText="Email Us"
-            buttonLink="mailto:aashit@erudites.in"
-            secondaryButtonText="Call Now"
-            secondaryButtonLink="tel:+919289920323"
+            buttonText="Book a Meeting"
+            buttonLink="/booking"
+            secondaryButtonText="Contact Us"
+            secondaryButtonLink="mailto:admin@setidure.com"
           />
+          <div className="mt-12">
+            <p className="text-center text-white text-lg mb-6">Or schedule a consultation at your convenience</p>
+            <BookingCalendar 
+              className="bg-slate-800/30 rounded-xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300" 
+              color="#039BE5"
+              label="Schedule Now"
+            />
+          </div>
         </div>
       </section>
     </div>

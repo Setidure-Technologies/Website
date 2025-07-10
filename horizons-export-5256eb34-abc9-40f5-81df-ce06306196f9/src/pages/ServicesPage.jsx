@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, FileText, Mic, Brain, MapPin } from 'lucide-react';
+import { GraduationCap, FileText, Mic, Brain, MapPin, Calendar } from 'lucide-react';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import ServiceCard from '@/components/ServiceCard';
 import ContentCard from '@/components/ContentCard';
 import CallToAction from '@/components/CallToAction';
+import BookingCalendar from '@/components/BookingCalendar';
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(null);
@@ -181,6 +182,31 @@ const ServicesPage = () => {
             buttonText="Get in Touch"
             buttonLink="/contact"
           />
+          
+          <div className="mt-16 max-w-3xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="backdrop-blur-glass rounded-xl border border-cyan-500/20"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <Calendar className="w-6 h-6 text-cyan-400 mr-3" />
+                  <h3 className="text-xl font-bold text-white font-poppins">Schedule a Service Demo</h3>
+                </div>
+                <p className="text-slate-300 mb-6 text-center">
+                  See our AI solutions in action with a personalized demo tailored to your needs.
+                </p>
+                <BookingCalendar 
+                  className="bg-slate-800/30 rounded-xl border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300" 
+                  color="#039BE5"
+                  label="Schedule a Demo"
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

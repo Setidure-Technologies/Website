@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Menu, X, Brain, ShoppingCart, ChevronDown } from 'lucide-react';
+import { Menu, X, Brain, ShoppingCart, ChevronDown, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import '../styles/dropdown.css';
 
@@ -56,6 +56,7 @@ const Header = () => {
     { name: 'Services', href: '/services', type: 'route' },
     { name: 'Industries', href: '/industries', type: 'route' },
     { name: 'Store', href: '/store', type: 'route' },
+    { name: 'Book Meeting', href: '/booking', type: 'route' },
     { name: 'Contact', href: '/contact', type: 'route' }
   ];
 
@@ -116,6 +117,18 @@ const Header = () => {
             </Link>
 
             <div className="hidden md:flex items-center space-x-6">
+              {/* Book Meeting Button */}
+              <Link to="/booking" className="flex items-center space-x-1 text-cyan-400 hover:text-cyan-300 transition-colors duration-300 font-medium">
+                <Calendar className="w-4 h-4" />
+                <motion.span
+                  whileHover={{ y: -2 }}
+                  whileTap={{ y: 0 }}
+                  className={`${location.pathname === '/booking' ? 'text-cyan-300' : ''}`}
+                >
+                  Book Meeting
+                </motion.span>
+              </Link>
+              
               {/* Home Link */}
               <Link to="/">
                 <motion.span

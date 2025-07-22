@@ -13,7 +13,11 @@ const Footer = () => {
       { name: 'Home', href: '/', type: 'route' },
       { name: 'About', href: '/#about', type: 'anchor' },
       { name: 'Services', href: '/#services', type: 'anchor' },
-      { name: 'Store', href: '/store', type: 'route' }
+      { name: 'Store', href: '/store', type: 'route' },
+      { name: 'Privacy Policy', href: '/privacy-policy', type: 'route' },
+      { name: 'Refund Policy', href: '/refund-policy', type: 'route' },
+      { name: 'Terms & Conditions', href: '/terms', type: 'route' },
+      { name: 'Company Info', href: '/company-info', type: 'route' }
     ],
     products: [
       { name: 'Upadhyai Platform', href: '/#services', type: 'anchor' },
@@ -214,18 +218,21 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 text-sm">
-              © {new Date().getFullYear()} Setidure Technologies. All rights reserved.
+              © 2025 Setidure Technologies Pvt Ltd | CIN: U62099DL2025PTC449506
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              <Link to="/privacy-policy" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Cookie Policy
-              </a>
+              </Link>
+              <Link to="/refund-policy" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                Refund Policy
+              </Link>
+              <Link to="/terms" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                Terms & Conditions
+              </Link>
+              <Link to="/company-info" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                Company Info
+              </Link>
             </div>
           </div>
         </motion.div>
